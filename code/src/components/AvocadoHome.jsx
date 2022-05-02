@@ -22,6 +22,7 @@ const AvocadoHome = () => {
     };
 
     fetchRegions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadRegion = async (e) => {
