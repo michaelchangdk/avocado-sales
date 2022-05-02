@@ -30,16 +30,22 @@ const Chart = ({ regionData, region }) => {
       },
       title: {
         display: true,
-        text: `${region} Avocado Sales`,
+        text: `${region} Relationship Between Price and Avocado Sales`,
       },
       scales: {
-        yAxes: [
-          {
-            ticks: {
-              stepSize: 1000,
-            },
+        y: {
+          type: "linear",
+          display: true,
+          position: "left",
+        },
+        y1: {
+          type: "linear",
+          display: true,
+          position: "right",
+          grid: {
+            drawOnChartArea: false,
           },
-        ],
+        },
       },
     },
   };
@@ -48,16 +54,18 @@ const Chart = ({ regionData, region }) => {
     labels: regionData.map((datapoint) => datapoint.date),
     datasets: [
       {
-        label: `${region} volume of sold avocados`,
+        label: `Number of avocados sold`,
         data: regionData.map((datapoint) => datapoint.totalVolume),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
+        yAxisID: "y",
       },
       {
-        label: `${region} value of sold avocados`,
-        data: regionData.map((datapoint) => datapoint.averagePrice * 1000),
+        label: `Price of avocados`,
+        data: regionData.map((datapoint) => datapoint.averagePrice),
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
+        yAxisID: "y1",
       },
     ],
   };
