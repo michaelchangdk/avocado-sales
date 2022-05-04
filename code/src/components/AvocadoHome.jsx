@@ -18,7 +18,7 @@ const AvocadoHome = () => {
         "https://express-api-week17.herokuapp.com/regions"
       );
       const data = await response.json();
-      setRegionsList(data);
+      setRegionsList(data.data);
       setLoading(false);
     };
 
@@ -33,7 +33,7 @@ const AvocadoHome = () => {
       `https://express-api-week17.herokuapp.com/avocadosales/${region}`
     );
     const data = await response.json();
-    setRegionData(data);
+    setRegionData(data.data);
     setLoading(false);
   };
 
