@@ -57,7 +57,9 @@ const AvocadoHome = () => {
             </option>
           ))}
         </Select>
-        <Button onClick={(e) => loadRegion(e)}>Load</Button>
+        <Button disabled={region === ""} onClick={(e) => loadRegion(e)}>
+          Load
+        </Button>
       </Form>
       {loading && <Loading />}
       {regionData.length > 0 && (
